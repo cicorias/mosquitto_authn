@@ -70,6 +70,39 @@
               "image": "${MODULES.sender}",
               "createOptions": {}
             }
+          },
+          "eclipse-mosquitto": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "eclipse-mosquitto",
+              "createOptions": {
+                "ExposedPorts": {
+                  "1883/tcp": {},
+                  "9001/tcp": {}
+                },
+                "HostConfig": {
+                  // "Binds": [
+                  //   "/srv/docker/mosquitto/log:/mosquitto/log",
+                  //   "/srv/docker/mosquitto/data:/mosquitto/data"
+                  // ],
+                  "PortBindings": {
+                    "1883/tcp": [
+                      {
+                        "HostPort": "1883"
+                      }
+                    ],
+                    "9001/tcp": [
+                      {
+                        "HostPort": "9001"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
           }
         }
       }
