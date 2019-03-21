@@ -71,32 +71,31 @@
               "createOptions": {}
             }
           },
-          "eclipse-mosquitto": {
+          "mosquitto": {
             "version": "1.0",
             "type": "docker",
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "eclipse-mosquitto",
+              "image": "cicorias/mosquitto:latest",
               "createOptions": {
                 "ExposedPorts": {
-                  "1883/tcp": {},
-                  "9001/tcp": {}
+                  "1883/tcp": {}
                 },
                 "HostConfig": {
-                  // "Binds": [
-                  //   "/srv/docker/mosquitto/log:/mosquitto/log",
-                  //   "/srv/docker/mosquitto/data:/mosquitto/data"
-                  // ],
+                  "Binds": [
+                    "/srv/mosquitto:/mosquitto/log",
+                    "/srv/mosquitto:/mosquitto/data"
+                  ],
                   "PortBindings": {
                     "1883/tcp": [
                       {
-                        "HostPort": "1883"
-                      }
-                    ],
-                    "9001/tcp": [
+                        "HostPort": "1883",
+                        "HostIp": "192.168.86.54"
+                      },
                       {
-                        "HostPort": "9001"
+                        "HostPort": "1883",
+                        "HostIp": "127.0.0.1"
                       }
                     ]
                   }
