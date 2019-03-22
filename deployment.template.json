@@ -90,12 +90,7 @@
                   "PortBindings": {
                     "1883/tcp": [
                       {
-                        "HostPort": "1883",
-                        "HostIp": "192.168.86.54"
-                      },
-                      {
-                        "HostPort": "1883",
-                        "HostIp": "127.0.0.1"
+                        "HostPort": "1883"
                       }
                     ]
                   }
